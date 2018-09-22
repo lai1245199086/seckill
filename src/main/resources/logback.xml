@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+	 <!--自定义变量-->
+    <property name="LOGPATH" value="${user.home}/logs" />
+    <property name="LOG_NAME" value="seckill"/>
+    <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg，50是logger名称最大长度：日志消息，%n是换行符-->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} %method %line - %msg%n"/>
+    
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+       	<encoder charset="UTF-8">	
+            <pattern>${LOG_PATTERN}</pattern>
+    	</encoder>
+    </appender>
+	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+　　　　<file>${LOGPATH}${file.separator}${LOG_NAME}.log</file> 
+		<append>true</append>
+	 	<encoder charset="UTF-8">
+	   		<pattern>${LOG_PATTERN}</pattern>
+	   		<immediateFlush>true</immediateFlush>
+	   		<charset>UTF-8</charset>
+	   	</encoder>
+	   	<!--按照logback提供的时间切分策略分隔日志文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGPATH}${file.separator}${LOG_NAME}.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <!-- 保存30天的日志文件 -->
+			<maxHistory>30</maxHistory> 
+			<minIndex>1</minIndex> 
+　　　　　　  <maxIndex>5</maxIndex>
+		 	<!--日志文件最大的大小-->
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter"> 
+		   <level>debug</level> 
+		</filter> 
+	 </appender>
+ 	
+ 	
+ 	<!--自定义包下面的日志级别 name是包结构 level是级别 addtivity:是否向上级logger传递打印信息。默认是true-->
+    <logger name="com" level="INFO" addtivity="false">
+        <appender ref="CONSOLE"/>
+        <appender ref="FILE"/>
+    </logger>
+    <!--默认的日志级别，如果上面的logger没有命中，则按照root的级别打印日志，root是所有logger的父节点，如果addtivity是false，则不会抛到这里-->
+    <root level="debug">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
