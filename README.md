@@ -17,9 +17,9 @@
 
 
 #启动项目，访问地址
-	http://127.0.0.1:8888/seckill/test --測試helloworld
-	http://127.0.0.1:8888/seckill/list  -- 秒殺商品列表
-	http://127.0.0.1:8888/seckill/1000/detail --秒殺詳情
+	http://127.0.0.1:8888/seckill/test --测试helloworld
+	http://127.0.0.1:8888/seckill/list  -- 秒杀商品列表
+	http://127.0.0.1:8888/seckill/1000/detail --秒杀详情页
 
 
 #Druid日志监控：web.xml配置用戶名密碼：admin/123456
