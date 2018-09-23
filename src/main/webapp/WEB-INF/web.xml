@@ -100,7 +100,7 @@
 
 	<!-- Druid RMI远程SQL监控 -->
 	<servlet>
-		<servlet-name>DruidStatView</servlet-name>
+		<servlet-name>DruidRMIStatView</servlet-name>
 		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
 
 		<!-- 远程访问JavaSE项目使用jmx连接 -->
@@ -110,7 +110,7 @@
 		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>DruidStatView</servlet-name>
-		<url-pattern>/druid/*</url-pattern>
+		<servlet-name>DruidRMIStatView</servlet-name>
+		<url-pattern>/druid/RMI/*</url-pattern>
 	</servlet-mapping>
 </web-app>
