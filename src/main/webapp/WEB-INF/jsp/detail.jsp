@@ -78,7 +78,7 @@
 <%--jQuery countDown倒计时插件--%>
 <script src="https://cdn.bootcss.com/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 
-<script src="/resource/script/seckill.js" typ="text/javascript"></script>
+<script src="/js/script/seckill.js" typ="text/javascript"></script>
 
 
 <script type="text/javascript">
