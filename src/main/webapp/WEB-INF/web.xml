@@ -38,7 +38,7 @@
 			Mybites -> spring -> springMvc -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:springapplicationContext.xml</param-value>
+			<param-value>classpath:applicationContext.xml</param-value>
 		</init-param>
 	</servlet>
 

@@ -22,9 +22,7 @@ import static org.junit.Assert.*;
  * Created by chengjinqian on 2017/4/18.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({
-        "classpath:spring/spring-dao.xml",
-        "classpath:spring/spring-service.xml"})
+@ContextConfiguration({"classpath:applicationContext.xml"})
 public class SeckillServiceTest {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

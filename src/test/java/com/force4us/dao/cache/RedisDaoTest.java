@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  * Created by chengjinqian on 2017/4/20.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-dao.xml"})
+@ContextConfiguration({"classpath:applicationContext.xml"})
 public class RedisDaoTest {
 
     private long id = 1001;
